@@ -6,4 +6,4 @@
 
 ## [discovery go](http://www.yes24.com/Product/Goods/24759320)
 
-- 1 장
+- [1 장](discovery_go/chap_1)
