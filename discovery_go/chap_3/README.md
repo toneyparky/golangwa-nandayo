@@ -31,3 +31,21 @@ fmt.Printf("%s는 맛있다.\n", fruit)
 - 두개의 변수 할당 ([여러 변수](https://stackoverflow.com/questions/21071507/can-you-declare-multiple-variables-at-once-in-go)
   , [타입이 다른 변수들](https://stackoverflow.com/questions/45086082/multiple-variables-of-different-types-in-one-line-in-go-without-short-variable))
 - 버블 정렬
+
+---
+
+## 3. 정렬된 문자열 슬라이스가 있을 때, 특정 문자열이 슬라이스에 있는지를 조사하는 함수를 작성해보자. 이진 검색 알고리즘을 사용하면 좋다.
+
+### 배운점
+
+- sort 패키지의 Search 함수. (Search<T>를 이용하여 타입을 지정 가능, 이미 정렬이 되어있어야 사용 가능)
+
+---
+
+## 4. 슬라이스를 이용하여 큐 자료구조를 구현해보자. 큐에 자료를 넣는 것은 append 함수를 이용하고 자료를 꺼낼 때에는 아래의 코드를 이용해보자. 이 방법을 이용하여 자료를 계속해서 넣고 꺼낼 때, 어떤 문제가 발생할 수 있는지 생각해보자. 혹은 큰 문제가 되지 않을 수 있는 이유 역시 생각해보자.
+
+> q = q[1:]
+
+### 배운점
+
+- 함수의 반환시 복수 개의 값을 넘길 수 있다.
