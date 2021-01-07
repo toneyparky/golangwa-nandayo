@@ -49,3 +49,64 @@ fmt.Printf("%s는 맛있다.\n", fruit)
 ### 배운점
 
 - 함수의 반환시 복수 개의 값을 넘길 수 있다.
+
+---
+
+## 5. 같은 원소가 여러 번 들어갈 수 있는 집합인 MultiSet을 기본적으로 제공하는 맵을 이용하여 만들어보자. 아래와 같은 함수들을 작성하면 된다.
+
+~~~go
+// 새로운 MultiSet을 생성하여 반환한다.
+func NewMultiSet() map[string]int
+
+// Insert 함수는 집합에 val을 추가한다.
+func Insert(m map [string]int, val string)
+
+// Erase 함수는 집합에서 val을 제거한다. 집합에 val이 없는 경우에는 아무 일도 일어나지 않는다.
+func Erase(m map[string]int, val string)
+
+// Count 함수는 집합에 val이 들어 있는 횟수를 구한다.
+func Count(m map[string]int, val string) int
+
+// String 함수는 집합에 들어 있는 원소들을 { } 안에 빈 칸으로 구분하여 넣은 문자열을 반환한다.
+func Strint(m map[string]int) string
+~~~
+
+- 아래와 같은 예제 코드가 동작하면 된다.
+
+~~~go
+func ExampleMultiSet() {
+m := NewMultiSet()
+fmt.Println(String(m))
+fmt.Println(Count(m, "3"))
+Insert(m, "3")
+Insert(m, "3")
+Insert(m, "3")
+Insert(m, "3")
+fmt.Println(String(m))
+fmt.Println(Count(m, "3"))
+Insert(m, "1")
+Insert(m, "2")
+Insert(m, "5")
+Insert(m, "7")
+Erase(m, "3")
+Erase(m, "5")
+fmt.Println(Count(m, "3"))
+fmt.Println(Count(m, "1"))
+fmt.Println(Count(m, "2"))
+fmt.Println(Count(m, "5"))
+// Output:
+// { }
+// 0
+// { 3 3 3 3 }
+// 4
+// 3
+// 1
+// 1
+// 0
+}
+~~~
+
+### 배운점
+
+- map 자료구조의 활용
+- `bytes.Buffer`를 활용한 concat
