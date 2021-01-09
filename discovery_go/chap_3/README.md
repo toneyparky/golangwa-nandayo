@@ -42,7 +42,7 @@ fmt.Printf("%s는 맛있다.\n", fruit)
 
 ---
 
-## 4. 슬라이스를 이용하여 큐 자료구조를 구현해보자. 큐에 자료를 넣는 것은 append 함수를 이용하고 자료를 꺼낼 때에는 아래의 코드를 이용해보자. 이 방법을 이용하여 자료를 계속해서 넣고 꺼낼 때, 어떤 문제가 발생할 수 있는지 생각해보자. 혹은 큰 문제가 되지 않을 수 있는 이유 역시 생각해보자.
+## 4. 슬라이스를 이용하여 큐 자료구조를 구현해보자. 큐에 자료를 넣는 것은 `append` 함수를 이용하고 자료를 꺼낼 때에는 아래의 코드를 이용해보자. 이 방법을 이용하여 자료를 계속해서 넣고 꺼낼 때, 어떤 문제가 발생할 수 있는지 생각해보자. 혹은 큰 문제가 되지 않을 수 있는 이유 역시 생각해보자.
 
 > q = q[1:]
 
@@ -52,7 +52,7 @@ fmt.Printf("%s는 맛있다.\n", fruit)
 
 ---
 
-## 5. 같은 원소가 여러 번 들어갈 수 있는 집합인 MultiSet을 기본적으로 제공하는 맵을 이용하여 만들어보자. 아래와 같은 함수들을 작성하면 된다.
+## 5. 같은 원소가 여러 번 들어갈 수 있는 집합인 `MultiSet`을 기본적으로 제공하는 맵을 이용하여 만들어보자. 아래와 같은 함수들을 작성하면 된다.
 
 ~~~go
 // 새로운 MultiSet을 생성하여 반환한다.
@@ -110,3 +110,28 @@ fmt.Println(Count(m, "5"))
 
 - map 자료구조의 활용
 - `bytes.Buffer`를 활용한 concat
+
+---
+
+## 6. 입출력 함수들을 잘 살펴보자. `io.Reader`에는 `Read` 메서드가 제공된다. 그러나 파일을 읽을 때에 이 메서드를 이용하기보다는 `io.ReadFull`을 이용해야 편리한 경우가 많다. `io.ReadFull`을 이용하지 않고 `Read` 메서드를 이용하면 어떤 함정에 빠질 수 있는지 생각해보자.
+
+- [Read 메서드](https://golang.org/pkg/io/#Reader)
+- [ReadFull 메서드](https://golang.org/pkg/io/#ReadFull)
+
+### 배운점
+
+- Read 메서드의 설명을 참고해보면 Read를 구현할 때에 0과 nil을 반환하는 경우에 대해서 End Of Line인지 여부를 따로 체크해줘야 한다는 이야기가 있다. 하지만 ReadFull은 정확히 주어진
+  버퍼의 길이만큼만 읽고 버퍼 길이 이하만큼 읽었을 때에 발생하는 에러를 처리하면 된다.
+
+---
+
+## 7. 입출력 예제에서 `ReadFrom`과 `WriteTo`가 `*os.File` 대신에 `io.Reader` 및 `io.Writer`를 넘겨받도록 작성될 때 어떤 장점이 생기는지 생각해보자.
+
+- [ReadFrom 메서드](https://golang.org/pkg/bytes/#Buffer.ReadFrom)
+- [WriteTo 메서드](https://golang.org/pkg/bytes/#Buffer.WriteTo)
+
+### 배운점
+
+- 추상화와 관련되어 있는 장점이라고 생각한다. [io.Reader](https://golang.org/pkg/io/#Reader)
+  , [io.Writer](https://golang.org/pkg/io/#Writer) 는 인터페이스다. 직접 File을 사용하지 않고 필요한 행위만 인터페이스를 통해 사용하면 캡슐화 등등의 추상화로 인한
+  긍정적인 장점을 얻을 수 있다. 
