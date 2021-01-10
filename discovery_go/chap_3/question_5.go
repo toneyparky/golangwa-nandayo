@@ -4,23 +4,25 @@ import (
 	"bytes"
 )
 
-func NewMultiSet() map[string]int {
-	return map[string]int{}
+type MultiSet map[string]int
+
+func NewMultiSet() MultiSet {
+	return MultiSet{}
 }
 
-func Insert(m map[string]int, input string) {
+func Insert(m MultiSet, input string) {
 	m[input]++
 }
 
-func Erase(m map[string]int, input string) {
+func Erase(m MultiSet, input string) {
 	m[input]--
 }
 
-func Count(m map[string]int, input string) int {
+func Count(m MultiSet, input string) int {
 	return m[input]
 }
 
-func String(m map[string]int) string {
+func String(m MultiSet) string {
 	var buffer bytes.Buffer
 	buffer.WriteString("{ ")
 
