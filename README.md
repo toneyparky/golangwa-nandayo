@@ -9,3 +9,4 @@
 - [1 장](discovery_go/chap_1)
 - [3 장](discovery_go/chap_3)
 - [4 장](discovery_go/chap_4)
+- [5 장](discovery_go/chap_5)
