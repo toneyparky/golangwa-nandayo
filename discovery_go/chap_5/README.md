@@ -22,4 +22,14 @@ task.MarkDone()
 
 - 외부 패키지의 타입 대해 메서드를 추가하고 싶을
   때에는 [그 타입을 내장하는 다른 타입을 만드는 방법도](https://stackoverflow.com/questions/28800672/how-to-add-new-methods-to-an-existing-type-in-go)
-  있다. (처음에 적용했다가 지금의 방법으로 복귀) 
+  있다. (처음에 적용했다가 지금의 방법으로 복귀)
+
+---
+
+## 2. 정렬 인터페이스에 예제로 나와 있는 ExampleCaseInsensitiveSort는 한 가지 경우에만 테스트한다. 테이블 기반 테스트를 이용한 TestCaseInsensitiveSort 함수를 구현하여 여러가지 경우의 수에 대하여 정렬이 제대로 동작하는지 확인해보자.
+
+### 배운점
+
+- case는 예약어이다.
+- golang에서는 []string 두 개에 대한 동등성 비교 조차도 직접 만들어야 한다.
+- 테이블 기반 테스트의 활용은 어렵지 않다.
