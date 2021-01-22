@@ -42,3 +42,12 @@ task.MarkDone()
 
 - 문제의 정답을 내지는 못했다고 생각한다. 어떻게 코드를 짜야할지 아직도 감이 잘 안온다. 추후에 다시 보자.
 - String(), UnmarshalJSON(), MarshalJSON()을 구현했다. struct를 field로 가질 경우 이 메서드들을 작성해줘야 직렬화, 역직렬화가 원활하게 진행된다.
+
+---
+
+## 4. Task 구조체 슬라이스를 마감 날짜순 혹은 중요도 순으로 졍렬할 수 있게 sort.Interface를 구현해보자. CaseInsensitive에서 본 예제처럼 각각 다른 이름을 붙여서 구현해보자.
+
+### 배운점
+
+- Time 타입의 메서드 Sub
+- sort 패키지의 Sort와 Reverse, 그리고 go 1.8에 추가된 Slice
