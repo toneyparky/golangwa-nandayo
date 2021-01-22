@@ -51,3 +51,24 @@ task.MarkDone()
 
 - Time 타입의 메서드 Sub
 - sort 패키지의 Sort와 Reverse, 그리고 go 1.8에 추가된 Slice
+
+---
+
+## 5. 4장의 생성기 패턴과 5장의 인터페이스를 이용하여 각각 반복자를 구현해보자.
+
+### 배운점
+
+- interface 생성 방법
+- slice를 pointer로 메서드에 넘겨줄 경우, 아래를 참고하자.
+
+~~~go
+func (i *Iterator) Next() int {
+iterator := *i
+element := iterator[0]
+*i = iterator[1:]
+return element
+}
+~~~
+
+- 범용적인 코드를 구현하고 싶은데 golang의 특성상 제네릭이 없는 게 아쉽다. 하지만 [링크](https://blog.golang.org/why-generics)에서 알 수 있듯 올해 중반에 새로운 기능으로
+  추가될 수 있다.
