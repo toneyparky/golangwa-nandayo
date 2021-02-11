@@ -69,3 +69,5 @@ xhr.send("tasks="+encodeURIComponent(JSON.stringify(tasks)));
   <p value="{{$val}}">{{$val.Title}}</p>
 {{end}}
 ~~~
+
+- map의 전체 값을 가져오는 방법에 대한 논의 [링크](https://stackoverflow.com/questions/21362950/getting-a-slice-of-keys-from-a-map)
