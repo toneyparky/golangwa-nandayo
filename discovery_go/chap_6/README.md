@@ -71,3 +71,31 @@ xhr.send("tasks="+encodeURIComponent(JSON.stringify(tasks)));
 ~~~
 
 - map의 전체 값을 가져오는 방법에 대한 논의 [링크](https://stackoverflow.com/questions/21362950/getting-a-slice-of-keys-from-a-map)
+
+---
+
+## 3. 맵에는 쓰기 연산을 동시에 할 수 없다. InMemoryAccessor가 문제가 발생하지 않도록 코드를 수정해보자. 동시성 부분의 내용을 읽어야 이 문제를 해결할 수 있을 것이다.  
+
+### 배운점
+
+- 7장 동시성에서 배운 RWMutex를 활용하여 아래와 같이 수정한다. 
+
+~~~go
+
+type ConcurrentInMemoryAccessor struct {
+	accessor InMemoryAccessor
+	mutex    *sync.RWMutex
+}
+
+func (c ConcurrentInMemoryAccessor) Get(key ID) Task {
+	c.mutex.RLock()
+	defer c.mutex.RUnlock()
+	return c.accessor.tasks[key]
+}
+
+func (c ConcurrentInMemoryAccessor) Set(key ID, value Task) {
+	c.mutex.Lock()
+	c.accessor.tasks[key] = value
+	c.mutex.Unlock()
+}
+~~~
